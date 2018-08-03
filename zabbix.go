@@ -12,14 +12,23 @@ import (
 
 // Metric class.
 type Metric struct {
-	Host  string `json:"host"`
-	Key   string `json:"key"`
-	Value string `json:"value"`
-	Clock int64  `json:"clock"`
+	Host  string      `json:"host"`
+	Key   string      `json:"key"`
+	Value interface{} `json:"value"`
+	Clock int64       `json:"clock"`
+}
+
+func (m *Metric) String() string {
+	s := fmt.Sprintf("Host:%s Key:%v Value:%s Clock:%s",
+		m.Host, m.Key, m.Value, m.Clock)
+	return s
+}
+func (m *Metric) SetValue(v interface{}) {
+	m.Value = v
 }
 
 // Metric class constructor.
-func NewMetric(host, key, value string, clock ...int64) *Metric {
+func NewMetric(host, key string, value interface{}, clock ...int64) *Metric {
 	m := &Metric{Host: host, Key: key, Value: value}
 	// use current time, if `clock` is not specified
 	if m.Clock = time.Now().Unix(); len(clock) > 0 {

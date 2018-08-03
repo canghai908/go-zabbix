@@ -3,9 +3,9 @@ package zabbix
 import "testing"
 
 const (
-	hostname   = `somehost.com`
-	zabbixhost = `172.30.30.30`
-	zabbixport = 1234
+	hostname   = `zabbix.cactifans.com`
+	zabbixhost = `host135`
+	zabbixport = 10051
 )
 
 func TestSend(t *testing.T) {
