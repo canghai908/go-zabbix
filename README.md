@@ -8,7 +8,7 @@ package main
 
 import (
     "time"
-    . "github.com/blacked/go-zabbix"
+    . "github.com/canghai908/go-zabbix"
 )
 
 const (

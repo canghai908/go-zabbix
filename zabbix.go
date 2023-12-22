@@ -28,11 +28,16 @@ func (m *Metric) SetValue(v interface{}) {
 }
 
 // Metric class constructor.
-func NewMetric(host, key string) *Metric {
+func NewMetric(host, key, value string, clock ...int64) *Metric {
+	Clock := time.Now().Unix()
+	if len(clock) > 0 {
+		Clock = clock[0]
+	}
 	m := &Metric{
 		Host:  host,
 		Key:   key,
-		Clock: time.Now().Unix(),
+		Value: value,
+		Clock: Clock,
 	}
 	return m
 }
