@@ -20,7 +20,7 @@ func main() {
     var metrics []*Metric
     metrics = append(metrics, NewMetric("localhost", "cpu", "1.22", time.Now().Unix()))
     metrics = append(metrics, NewMetric("localhost", "status", "OK"))
-
+	
     // Create instance of Packet class
     packet := NewPacket(metrics)
 
